@@ -4,6 +4,9 @@ const formidable = require('formidable');
 
 var routes = require("./routes");
 
+//requires the use of DCPModule
+var dcp = require('./DCPModule');
+
 var app = express();
 
 

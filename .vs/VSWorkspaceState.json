@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Resume_App"
+    "\\Resume_App",
+    "\\Resume_App\\Resume-Analysis_1a",
+    "\\Resume_App\\Resume-Analysis_1a\\views"
   ],
-  "SelectedNode": "\\pdfToText.js",
+  "SelectedNode": "\\Resume_App\\Resume-Analysis_1a\\routes.js",
   "PreviewInSolutionExplorer": false
 }
