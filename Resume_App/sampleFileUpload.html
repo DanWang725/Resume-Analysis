@@ -17,8 +17,12 @@
 
   <!-- Turn all file input elements into ponds -->
   <script>
-  FilePond.parse(document.body);
-  </script>
-
+  FilePond.parse(document.body);	
+  const inputElement = document.querySelector('input[type="file"]');
+  const pond = FilePond.create( inputElement );
+  pond.setOptions({
+    server: "/upload"
+  })
+</script>
 </body>
 </html>
