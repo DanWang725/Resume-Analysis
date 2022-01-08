@@ -13,7 +13,7 @@ app.set("view engine", "ejs");
 
 app.use(routes);
 
-app.listen(app.get("port"), function(){
+app.listen(app.get("port"), '192.168.86.215', function(){
       console.log("Server started on port " + app.get("port"));
 });
 
