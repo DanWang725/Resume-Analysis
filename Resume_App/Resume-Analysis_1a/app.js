@@ -8,7 +8,7 @@ const pdf = require('pdf-parse');
 var routes = require("./routes");
 
 //requires the use of DCPModule
-var dcp = require('./DCPModule');
+var dcp = require("./DCPModule");
 
 var app = express();
 
@@ -71,3 +71,7 @@ app.post("/save", function(req, res){
         
 });
 })
+
+dcp.doWork();
+
+
