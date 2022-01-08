@@ -80,7 +80,7 @@ int locateWorkExperience(char fileName[CHAR_LIMIT]) {
     }
     else {
 
-    	//Scanning through the text file 
+    	//Scanning through the text file
     	while(fgets(buffer, CHAR_LIMIT, inputFile) != NULL) {
     		buffer[strlen(buffer) - 1] = '\0';
 
@@ -121,42 +121,13 @@ int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 }
 
 int findMonthValue(char currDate[CHAR_LIMIT]) {
-	if (strcmp(currDate, "january") == 0) {
-		return 1;
-	}
-	else if (strcmp(currDate, "february") == 0) {
-		return 2;
-	}
-	else if (strcmp(currDate, "march") == 0) {
-		return 3;
-	}
-	else if (strcmp(currDate, "april") == 0) {
-		return 4;
-	}
-	else if (strcmp(currDate, "may") == 0) {
-		return 5;
-	}
-	else if (strcmp(currDate, "june") == 0) {
-		return 6;
-	}
-	else if (strcmp(currDate, "july") == 0) {
-		return 7;
-	}
-	else if (strcmp(currDate, "august") == 0) {
-		return 8;
-	}
-	else if (strcmp(currDate, "september") == 0) {
-		return 9;
-	}
-	else if (strcmp(currDate, "october") == 0) {
-		return 10;
-	}
-	else if (strcmp(currDate, "november") == 0) {
-		return 11;
-	}
-	else if (strcmp(currDate, "december") == 0) {
-		return 12;
-	}
 
-	return CURR_DATE_VAL;
+	char months[12][CHAR_LIMIT] = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+
+	for(int i = 0; i < 12; i++){
+		if(strcmp(currDate, months[i]) == 0){
+			return (i + 1);
+			break;
+		}
+	}
 }
