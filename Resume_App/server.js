@@ -1,8 +1,9 @@
 const http = require('http')
-const port = 3000
+const port = 1337
 
 const server = http.createServer(function (req, res) {
-
+    res.write('Hello Node')
+    res.end()
 })
 
 server.listen(port, function (error) {
