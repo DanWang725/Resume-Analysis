@@ -19,4 +19,15 @@ app.listen(app.get("port"), function(){
 
 app.post("/upload", function(req, res){
   console.log("BEGIN /upload");
+  const form = formidable({ multiples: false });
+
+  form.parse(req, (err, fields, files) => {
+    if(err){
+        next(err);
+        return;
+    }
+    let theFile = files.filepond.path;
+    console.log("theFile:" + theFile);
+    res.end(theFile);
+  });
 })
