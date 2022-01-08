@@ -19,7 +19,10 @@
       FilePond.registerPlugin(FilePondPluginFileValidateType);
 
       const inputElement = document.querySelector('input[type="file"]');
-      const pond = FilePond.create( inputElement );
+
+      const pond = FilePond.create( inputElement, {
+            acceptedFileTypes: ['application/pdf'],
+        });
       pond.setOptions({
         server: "/upload"
       })
