@@ -67,7 +67,8 @@ app.post("/save", function(req, res){
     // check https://mozilla.github.io/pdf.js/getting_started/
     console.log(data.version);
     // PDF text*/
-    console.log(data.text); 
+    console.log(data.info);
+    let fullResume = data.text;
         
 });
 })

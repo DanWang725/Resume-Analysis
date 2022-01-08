@@ -13,7 +13,7 @@
           <input type="file" class ="filepond">
           <button type="submit" onclick="">Save It</button>
       </form>
-    
+        
       <!-- Turn all file input elements into ponds -->
       <script>
       FilePond.registerPlugin(FilePondPluginFileValidateType);
@@ -23,6 +23,7 @@
       const pond = FilePond.create( inputElement, {
             acceptedFileTypes: ['application/pdf'],
         });
+
       pond.setOptions({
         server: "/upload"
       })
