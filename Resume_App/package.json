@@ -1,0 +1,9 @@
+{
+  "name": "resume_app",
+  "version": "0.0.0",
+  "description": "Resume_App",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
