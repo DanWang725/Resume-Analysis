@@ -5,5 +5,8 @@
   "main": "server.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "dcp-client": "^4.1.16"
   }
 }
