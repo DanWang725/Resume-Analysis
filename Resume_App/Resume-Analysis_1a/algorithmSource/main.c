@@ -1,5 +1,4 @@
 #include "given.h"
-#include <emscripten/emscripten.h>
 
 const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Personal Projects", "Information"};
 
@@ -12,7 +11,7 @@ int main(int argc, char * argv[]) {
 	return 0;
 }
 
-EMSCRIPTEN_KEEPALIVE int computeWorkExperience(char buffer[CHAR_LIMIT]) {
+int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	//Declaring Variables
 	int loc;
 	bool presentDayWorkExp = false;
@@ -67,7 +66,7 @@ EMSCRIPTEN_KEEPALIVE int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	return totalMonths;
 }
 
-EMSCRIPTEN_KEEPALIVE int locateWorkExperience(char fileName[CHAR_LIMIT]) {
+int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 	//Declaring Variables
 	FILE * inputFile = NULL;
 	char buffer[CHAR_LIMIT];
@@ -121,7 +120,7 @@ EMSCRIPTEN_KEEPALIVE int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 	return totalWorkExperience;
 }
 
-EMSCRIPTEN_KEEPALIVE int findMonthValue(char currDate[CHAR_LIMIT]) {
+int findMonthValue(char currDate[CHAR_LIMIT]) {
 	if (strcmp(currDate, "january") == 0) {
 		return 1;
 	}
