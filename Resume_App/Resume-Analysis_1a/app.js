@@ -29,8 +29,10 @@ app.post("/upload", function(req, res){
         next(err);
         return;
     }
-    let theFile = files.filepond.path;
+
+    let theFile = files.filepond.filepath;
     console.log("theFile:" + theFile);
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(theFile);
   });
 })
