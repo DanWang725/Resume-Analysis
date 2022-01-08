@@ -1,10 +1,15 @@
-'use strict';
-var express = require('express');
+const http = require('http')
+const port = 3000
 
-// Create handlebars with default layout
-var handlebars = require('express-handlebars')
-    .create({ defaultLayout: 'main' });
+const server = http.createServer(function (req, res) {
 
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars')
+})
+
+server.listen(port, function (error) {
+    if (error) {
+        console.log('Something went wrong', error)
+    } else {
+        console.log('Server is listenig on port' + port)
+    }
+})
 
