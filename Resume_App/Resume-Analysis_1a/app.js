@@ -11,6 +11,8 @@ var dcp = require("./DCPModule");
 
 var app = express();
 
+let numFiles = 0;
+
 
 app.set("port", process.env.PORT || 3000);
 
@@ -40,7 +42,15 @@ app.post("/upload", function(req, res){
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(theFile);
   });
+
+    //make text box with file name for every file uploaded with height based on how many files uploaded
+
+
+    numFiles += 1;
+
 })
+
+
 
 app.use(express.urlencoded({ extended: true }));
 
