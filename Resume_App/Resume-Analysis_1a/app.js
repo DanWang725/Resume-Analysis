@@ -100,7 +100,9 @@ app.post("/save", function (req, res) {
         } catch (err) {
         console.error(err)
     }
-    //var result = dcp.doWork('./tempText.txt');*/
+    */
+
+    var result = dcp.doWork(arr);
 
 })
 
