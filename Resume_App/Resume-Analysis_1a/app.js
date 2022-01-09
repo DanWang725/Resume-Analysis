@@ -4,6 +4,7 @@ const formidable = require('formidable');
 const fs = require('fs');
 const pdf = require('pdf-parse');
 
+const arr = [];
 
 var routes = require("./routes");
 
@@ -15,7 +16,7 @@ var app = express();
 
 app.set("port", process.env.PORT || 3000);
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views",path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(routes);
@@ -35,11 +36,10 @@ app.post("/upload", function(req, res){
         next(err);
         return;
     }
-
     let theFile = files.filepond.filepath;
     console.log("theFile:" + theFile);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(theFile);
+      res.end(theFile);
   });
 })
 
@@ -58,7 +58,7 @@ function handleDownload(req) {
 
 //handling user submission and recieving of files
 app.post("/save", function (req, res) {
-    const arr = [];
+
   console.log("BEGIN /save");
     console.log(`req: ${JSON.stringify(req.body)}`);
 
@@ -66,6 +66,12 @@ app.post("/save", function (req, res) {
     for (let i = 0; i < req.length; i++) {
         arr.push(handleDownload(req[i].body));
     }
+
+
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.redirect
+    res.end(); 
+
     //arr contains all the string data!!!!
 
     /*let fileData = fs.readFileSync(req.body.filepond);
@@ -106,6 +112,11 @@ app.post("/save", function (req, res) {
 
 })
 
+
+
+function testThis() {
+    console.log('hello')
+;}
 //dcp.doWork();
 
 
