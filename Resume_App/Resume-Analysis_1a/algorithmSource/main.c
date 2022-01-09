@@ -6,10 +6,23 @@ const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Per
 int main(int argc, char * argv[]) {
 	//Declaring Variables
 	char tempString[CHAR_LIMIT];
-	for(int i = 1; i<arc; i++){
-		strcat(tempString, "\n");
-		strcat(tempString, argv[i]);
+
+	FILE * inputFile = NULL;
+	char test2[CHAR_LIMIT];
+
+	//Opening the File
+	inputFile = fopen(argv[1], "r");
+	if (inputFile == NULL) {
+        printf("File unable to be opened\n");
+    }
+    else {
+
+    	//Scanning through the text file
+		while(fgets(temp2, CHAR_LIMIT, inputFile) != NULL) {
+			strcpy(tempString, temp2);
+		}
 	}
+	inputFile.close();
 	int totalWorkExperience = locateWorkExperience(tempString);
 
 	printf("Total Work Experience: %d\n", totalWorkExperience);
