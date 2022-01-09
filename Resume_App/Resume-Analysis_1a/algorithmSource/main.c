@@ -67,7 +67,7 @@ int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	return totalMonths;
 }
 
-int locateWorkExperience(FILE * resume) {
+int locateWorkExperience(char inputString[CHAR_LIMIT]) {
 	//Declaring Variables
 
 	char buffer[CHAR_LIMIT];
@@ -76,7 +76,7 @@ int locateWorkExperience(FILE * resume) {
 
 	char * token = strtok(inputString, "\n");
 
-    while(token != null) {
+    while(token != NULL) {
 		sscanf(token, "%s", buffer);
     	buffer[strlen(buffer) - 1] = '\0';
 

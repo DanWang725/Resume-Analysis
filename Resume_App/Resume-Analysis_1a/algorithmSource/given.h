@@ -10,6 +10,6 @@
 #define CURR_MONTH "January"
 #define CURR_YEAR 2022
 
-int locateWorkExperience(FILE * resume);
+int locateWorkExperience(char inputString[CHAR_LIMIT]);
 int findMonthValue(char currDate[CHAR_LIMIT]);
 int computeWorkExperience(char buffer[CHAR_LIMIT]);
