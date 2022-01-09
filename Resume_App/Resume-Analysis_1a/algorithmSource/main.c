@@ -5,7 +5,11 @@ const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Per
 
 int main(int argc, char * argv[]) {
 	//Declaring Variables
-	int totalWorkExperience = locateWorkExperience(argv[1]);
+	char tempString[CHAR_LIMIT];
+	for(int i = 1; i<arc; i++){
+		strcat(tempString, argv[i]);
+	}
+	int totalWorkExperience = locateWorkExperience(tempString);
 
 	printf("Total Work Experience: %d\n", totalWorkExperience);
 
@@ -76,20 +80,21 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
 
 	char * token = strtok(inputString, "\n");
 
-    while(token != null) {
+    while(token != NULL) {
 		sscanf(token, "%s", buffer);
+		token = strtok(NULL, " ");
     	buffer[strlen(buffer) - 1] = '\0';
 
     	//Checking if at Work Experience Section
     	if (strcmp(buffer, "Work Experience") == 0) {
 
-    		while(true) {
+    		while(token != NULL) {
 
     			//Gathering and sifting input
-				token = strtok(NULL, " ");
-
+				
 				sscanf(token, "%s", buffer);
 				buffer[strlen(buffer) - 1] = '\0';
+				token = strtok(NULL, " ");
 
 				//Checking if at a new section yet
 				for (int i = 0; i < NUM_SECTIONS; i++) {
