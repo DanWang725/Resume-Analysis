@@ -6,7 +6,7 @@ const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Per
 int main(int argc, char * argv[]) {
 	//Declaring Variables
 	char tempString[CHAR_LIMIT];
-	for(int i = 1; i<arc; i++){
+	for(int i = 1; i<argc; i++){
 		strcat(tempString, "\n");
 		strcat(tempString, argv[i]);
 	}
@@ -92,7 +92,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
     		while(token != NULL) {
 
     			//Gathering and sifting input
-				
+
 				sscanf(token, "%s", buffer);
 				buffer[strlen(buffer) - 1] = '\0';
 				token = strtok(NULL, " ");
