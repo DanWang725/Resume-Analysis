@@ -74,8 +74,10 @@ int locateWorkExperience(FILE * resume) {
 	bool gatheringWorkExperiences = true;
 	int totalWorkExperience = 0;
 
+	char * token = strtok(inputString, "\n");
 
-    while(fgets(buffer, CHAR_LIMIT, resume) != NULL) {
+    while(token != null) {
+		sscanf(token, "%s", buffer);
     	buffer[strlen(buffer) - 1] = '\0';
 
     	//Checking if at Work Experience Section
@@ -84,7 +86,9 @@ int locateWorkExperience(FILE * resume) {
     		while(true) {
 
     			//Gathering and sifting input
-				fgets(buffer, CHAR_LIMIT, resume);
+				token = strtok(NULL, " ");
+
+				sscanf(token, "%s", buffer);
 				buffer[strlen(buffer) - 1] = '\0';
 
 				//Checking if at a new section yet
