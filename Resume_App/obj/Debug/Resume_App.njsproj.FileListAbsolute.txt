@@ -1,2 +1,3 @@
 C:\Users\Miron\source\repos\Resume-Analysis\Resume_App\obj\Debug\Resume_App.njsproj.CoreCompileInputs.cache
 C:\Users\Miron\source\repos\Resume-Analysis\Resume_App\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Miron\Source\Repos\Resume-Analysis\Resume_App\obj\Debug\Resume_App.njsproj.AssemblyReference.cache
