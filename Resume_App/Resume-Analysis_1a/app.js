@@ -119,9 +119,9 @@ app.post("/save", function(req, res){
         console.error(err)
     }*/
     //var result = dcp.doWork('./tempText.txt');*/
-
     let output = Module.ccall('locateWorkExperience', 'number', ['string'], [filePath]); //'tempText.txt'
     console.log(output);
+      
 })
 
 
