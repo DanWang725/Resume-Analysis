@@ -61,6 +61,8 @@ app.post("/save", function (req, res) {
     const arr = [];
   console.log("BEGIN /save");
     console.log(`req: ${JSON.stringify(req.body)}`);
+
+    //going through each file request separately and downloading and converting
     for (let i = 0; i < req.length; i++) {
         arr.push(handleDownload(req[i].body));
     }
