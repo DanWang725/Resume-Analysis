@@ -1,5 +1,6 @@
-module.declare(function(require,exports,module){
+
 var Module = (() => {
+  Module.declare(function (require, exports, module) {
   var _scriptDir = typeof document !== 'undefined' && document.currentScript ? document.currentScript.src : undefined;
   
   return (
