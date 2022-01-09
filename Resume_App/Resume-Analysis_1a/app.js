@@ -3,6 +3,9 @@ var path = require("path");
 const formidable = require('formidable');
 const fs = require('fs');
 const pdf = require('pdf-parse');
+let Module = require('./resume');
+
+const arr = [];
 
 var routes = require("./routes");
 
@@ -14,7 +17,7 @@ var app = express();
 
 app.set("port", process.env.PORT || 3000);
 
-app.set("views", path.join(__dirname, "views"));
+app.set("views",path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(routes);
@@ -34,11 +37,10 @@ app.post("/upload", function(req, res){
         next(err);
         return;
     }
-
     let theFile = files.filepond.filepath;
     console.log("theFile:" + theFile);
     res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end(theFile);
+      res.end(theFile);
   });
 
 })
@@ -54,10 +56,10 @@ app.post("/save", function(req, res){
     }
     //arr contains all the string data!!!!
 
-  let fileData = fs.readFileSync(req.body.filepond);
+  //let fileData = fs.readFileSync(req.body.filepond);
 
   //parsing the pdf and extracting text
-  pdf(fileData).then(function(data) {
+  //pdf(fileData).then(function(data) {
 
     /* number of pages
     console.log(data.numpages);
@@ -71,18 +73,19 @@ app.post("/save", function(req, res){
     // check https://mozilla.github.io/pdf.js/getting_started/
     console.log(data.version);
     // PDF text*/
-    console.log(data.info);
-    let fullResume = data.text;
+    //console.log(data.info);
+    //let fullResume = data.text;
     
-    try {
+    /*try {
         fs.writeFileSync('./tempText.txt', fullResume);
         //file written successfully
         } catch (err) {
         console.error(err)
-    }
+    }*/
     //var result = dcp.doWork('./tempText.txt');*/
 
-});
+    let output = Module.ccall('localeWorkExperience', 'number', ['string'], ['tempText.txt']);
+    console.log(output);
 })
 
 
