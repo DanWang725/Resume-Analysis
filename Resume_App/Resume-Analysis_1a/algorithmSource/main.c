@@ -7,6 +7,7 @@ int main(int argc, char * argv[]) {
 	//Declaring Variables
 	char tempString[CHAR_LIMIT];
 	for(int i = 1; i<arc; i++){
+		strcat(tempString, "\n");
 		strcat(tempString, argv[i]);
 	}
 	int totalWorkExperience = locateWorkExperience(tempString);
