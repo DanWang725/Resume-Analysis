@@ -1,8 +1,8 @@
 #include "given.h"
 
-const char titles[NUM_SECTIONS][CHAR_LIMIT] = { "Work Experience", "Skills", "Personal Projects", "Information" };
+const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Personal Projects", "Information"};
 
-int main(int argc, char* argv[]) {
+int main(int argc, char * argv[]) {
 	//Declaring Variables
 	int totalWorkExperience = locateWorkExperience(argv[1]);
 
@@ -13,7 +13,7 @@ int main(int argc, char* argv[]) {
 
 int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 	//Declaring Variables
-	FILE* inputFile = NULL;
+	FILE * inputFile = NULL;
 	char buffer[CHAR_LIMIT];
 	bool gatheringWorkExperiences = true;
 	int totalWorkExperience = 0;
@@ -21,20 +21,20 @@ int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 	//Opening the File
 	inputFile = fopen(fileName, "r");
 	if (inputFile == NULL) {
-		printf("File unable to be opened\n");
-	}
-	else {
+        printf("File unable to be opened\n");
+    }
+    else {
 
-		//Scanning through the text file 
-		while (fgets(buffer, CHAR_LIMIT, inputFile) != NULL) {
-			buffer[strlen(buffer) - 1] = '\0';
+    	//Scanning through the text file 
+    	while(fgets(buffer, CHAR_LIMIT, inputFile) != NULL) {
+    		buffer[strlen(buffer) - 1] = '\0';
 
-			//Checking if at Work Experience Section
-			if (strcmp(buffer, "Work Experience") == 0) {
+    		//Checking if at Work Experience Section
+    		if (strcmp(buffer, "Work Experience") == 0) {
 
-				while (true) {
+    			while(true) {
 
-					//Gathering and sifting input
+    				//Gathering and sifting input
 					fgets(buffer, CHAR_LIMIT, inputFile);
 					buffer[strlen(buffer) - 1] = '\0';
 
@@ -54,10 +54,10 @@ int locateWorkExperience(char fileName[CHAR_LIMIT]) {
 						break;
 					}
 
-				}
-				break;
-			}
-		}
+    			}
+    			break;
+    		}
+    	}
 
 		fclose(inputFile);
 	}
@@ -112,10 +112,10 @@ int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	//Converting month strings to integer values
 	for (i = 0; i < 2; i++) {
 		monthVals[i] = findMonthValue(months[i]);
-	}
+    }
 
-	//Computing the total months worked
-	totalMonths = ((years[1] - years[0] + 1) * 12) - (monthVals[0] - 1) - (12 - monthVals[1]);
+    //Computing the total months worked
+    totalMonths = ((years[1] - years[0] + 1) * 12) - (monthVals[0] - 1) - (12 - monthVals[1]);
 
 	return totalMonths;
 }
@@ -145,3 +145,18 @@ int findMonthValue(char currDate[CHAR_LIMIT]) {
 	else if (strcmp(currDate, "august") == 0) {
 		return 8;
 	}
+	else if (strcmp(currDate, "september") == 0) {
+		return 9;
+	}
+	else if (strcmp(currDate, "october") == 0) {
+		return 10;
+	}
+	else if (strcmp(currDate, "november") == 0) {
+		return 11;
+	}
+	else if (strcmp(currDate, "december") == 0) {
+		return 12;
+	}
+
+	return CURR_DATE_VAL;
+}
