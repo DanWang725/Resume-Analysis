@@ -46,6 +46,17 @@ app.post("/upload", function(req, res){
 
 app.use(express.urlencoded({ extended: true }));
 
+function handleDownload(req) {
+    let fileData = fs.readFileSync(req.filepond);
+
+    pdf(fileData).then(function (data) {
+
+        let fullResume = data.text;
+        return fullResume;
+
+    });
+}
+
 //handling user submission and recieving of files
 app.post("/save", function(req, res){
   console.log("BEGIN /save");
