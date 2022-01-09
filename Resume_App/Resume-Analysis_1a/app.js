@@ -72,7 +72,7 @@ app.post("/save", function(req, res){
     /* 
      * Okay, so it throws a mistake that handleDownload(req.body) is not the right type so not sure what to do,
     because not sure how to change the function so it's the right type (string, or instance of buffer, etc.), 
-    filePath is created at the top
+    filePath is created at the top and it is basically the .txt file where we write what we want, then next parameter is what we write 
     */
     fs.writeFile(filePath, handleDownload(req.body), function (err) {
         if (err) {
