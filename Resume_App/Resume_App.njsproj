@@ -34,6 +34,7 @@
     <Content Include="indexstyle.css">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Resume-Analysis_1a\views\index.css" />
     <Content Include="server.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
