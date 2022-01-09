@@ -57,13 +57,13 @@ function handleDownload(req) {
 
     });
 }
-
+// CHANGE THIS 
 //handling user submission and recieving of files
 app.post("/save", function(req, res){
   console.log("BEGIN /save");
     console.log(`req: ${JSON.stringify(req.body)}`);
     for (let i = 0; i < req.length; i++) {
-        arr.push(handleDownload(req[i].body));
+        arr.push(handleDownload(req[i].body)); // write it to a file
     }
     //arr contains all the string data!!!!
 
@@ -95,7 +95,7 @@ app.post("/save", function(req, res){
     }*/
     //var result = dcp.doWork('./tempText.txt');*/
 
-    let output = Module.ccall('localeWorkExperience', 'number', ['string'], ['tempText.txt']);
+    let output = Module.ccall('localeWorkExperience', 'number', ['string'], ['tempText.txt']); //'tempText.txt'
     console.log(output);
 })
 
