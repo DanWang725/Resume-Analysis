@@ -107,7 +107,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
     		while(token != NULL) {
 
     			//Gathering and sifting input
-				
+
 				sscanf(token, "%s", buffer);
 				buffer[strlen(buffer) - 1] = '\0';
 				token = strtok(NULL, " ");
@@ -131,7 +131,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
     		}
     		break;
     	}
-    	
+
 	}
 
 	return totalWorkExperience;

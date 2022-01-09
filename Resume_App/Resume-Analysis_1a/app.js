@@ -47,7 +47,11 @@ app.use(express.urlencoded({ extended: true }));
 //handling user submission and recieving of files
 app.post("/save", function(req, res){
   console.log("BEGIN /save");
-  console.log(`req: ${JSON.stringify(req.body)}`);
+    console.log(`req: ${JSON.stringify(req.body)}`);
+    for (let i = 0; i < req.length; i++) {
+        arr.push(handleDownload(req[i].body));
+    }
+    //arr contains all the string data!!!!
 
   let fileData = fs.readFileSync(req.body.filepond);
 
@@ -75,16 +79,9 @@ app.post("/save", function(req, res){
         } catch (err) {
         console.error(err)
     }
-    var result = await Module.ccall(
-            'locateWorkExperience',	// name of C function
-            'number',	// return type
-            ['string'],	// argument types
-            ['tempText.txt']	// arguments
-        );
+    //var result = dcp.doWork('./tempText.txt');*/
 
 });
 })
-
-//dcp.doWork();
 
 
