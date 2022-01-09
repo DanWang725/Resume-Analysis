@@ -76,12 +76,7 @@ app.post("/save", function(req, res){
         } catch (err) {
         console.error(err)
     }
-    var result = await Module.ccall(
-            'locateWorkExperience',	// name of C function
-            'number',	// return type
-            ['string'],	// argument types
-            ['tempText.txt']	// arguments
-        );
+    var result = dcp.doWork('./tempText.txt');
 
 });
 })
