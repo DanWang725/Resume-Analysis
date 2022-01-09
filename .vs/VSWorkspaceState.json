@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Resume_App",
-    "\\Resume_App\\Resume-Analysis_1a",
-    "\\Resume_App\\Resume-Analysis_1a\\algorithmSource",
-    "\\Resume_App\\Resume-Analysis_1a\\algorithmSource\\emsdk",
-    "\\Resume_App\\Resume-Analysis_1a\\views"
+    ""
   ],
-  "SelectedNode": "\\Resume_App\\Resume-Analysis_1a\\app.js",
+  "SelectedNode": "\\Resume_App.sln",
   "PreviewInSolutionExplorer": false
 }
