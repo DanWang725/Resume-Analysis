@@ -20,6 +20,8 @@ int main(int argc, char * argv[]) {
     	//Scanning through the text file
 		while(fgets(temp2, CHAR_LIMIT, inputFile) != NULL) {
 			strcpy(tempString, temp2);
+			strcpy(tempString, "\n");
+
 		}
 	}
 	inputFile.close();
