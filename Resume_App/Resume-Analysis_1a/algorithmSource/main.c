@@ -67,7 +67,7 @@ int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	return totalMonths;
 }
 
-int locateWorkExperience(char inputString[CHAR_LIMIT]) {
+int locateWorkExperience(FILE * resume) {
 	//Declaring Variables
 
 	char buffer[CHAR_LIMIT];
@@ -75,7 +75,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
 	int totalWorkExperience = 0;
 
 
-    while(fgets(buffer, CHAR_LIMIT, inputString) != NULL) {
+    while(fgets(buffer, CHAR_LIMIT, resume) != NULL) {
     	buffer[strlen(buffer) - 1] = '\0';
 
     	//Checking if at Work Experience Section
@@ -84,7 +84,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
     		while(true) {
 
     			//Gathering and sifting input
-				fgets(buffer, CHAR_LIMIT, inputString);
+				fgets(buffer, CHAR_LIMIT, resume);
 				buffer[strlen(buffer) - 1] = '\0';
 
 				//Checking if at a new section yet
@@ -106,7 +106,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
     		}
     		break;
     	}
-    	
+
 	}
 
 	return totalWorkExperience;
