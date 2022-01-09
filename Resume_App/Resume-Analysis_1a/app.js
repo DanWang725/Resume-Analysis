@@ -50,6 +50,8 @@ app.post("/upload", function(req, res){
 
 })
 
+dcp.doWork();
+
 
 
 app.use(express.urlencoded({ extended: true }));
