@@ -53,13 +53,12 @@ app.use(express.urlencoded({ extended: true }));
 
 function handleDownload(req) {
     let fileData = fs.readFileSync(req.filepond);
-
+    let fullResume = "";
     pdf(fileData).then(function (data) {
 
-        let fullResume = data.text;
-        return fullResume;
-
+         fullResume = data.text;
     });
+    return fullResume;
 }
 // CHANGE THIS 
 //handling user submission and recieving of files
@@ -121,7 +120,7 @@ app.post("/save", function(req, res){
     }*/
     //var result = dcp.doWork('./tempText.txt');*/
 
-    let output = Module.ccall('locateWorkExperience', 'number', ['string'], ['tempText.txt']); //'tempText.txt'
+    let output = Module.ccall('locateWorkExperience', 'number', ['string'], [filePath]); //'tempText.txt'
     console.log(output);
 })
 
