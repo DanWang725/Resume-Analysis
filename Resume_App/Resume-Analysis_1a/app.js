@@ -62,7 +62,8 @@ function handleDownload(req) {
 }
 // CHANGE THIS 
 //handling user submission and recieving of files
-app.post("/save", function(req, res){
+app.post("/save", function (req, res) {
+    let output = "";
   console.log("BEGIN /save");
     console.log(`req: ${JSON.stringify(req.body)}`);
     // console.log('req.length: %d', req.length);
@@ -77,9 +78,10 @@ app.post("/save", function(req, res){
         if (err) {
             return console.log(err);
         } else {
-                console.log("File written successfully\n");
+            console.log("File written successfully\n");
+            output = Module.ccall('locateWorkExperience', 'number', ['string'], [filePath]);
         }
-    });
+    })
 
     /* NOT SURE ABOUT THIS FOR LOOP, I THINK IT NEVER EXECUTES
      for (let i = 0; i < req.length; i++) { //req.length = NaN???
@@ -119,9 +121,9 @@ app.post("/save", function(req, res){
         console.error(err)
     }*/
     //var result = dcp.doWork('./tempText.txt');*/
-    let output = Module.ccall('locateWorkExperience', 'number', ['string'], [filePath]); //'tempText.txt'
+
+    
     console.log(output);
-      
 })
 
 
