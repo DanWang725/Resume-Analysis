@@ -97,7 +97,7 @@ int locateWorkExperience(char inputString[CHAR_LIMIT]) {
 	char * token = strtok(inputString, "\n");
 
     while(token != NULL) {
-		sscanf(token, "%s", buffer);
+		sscanf(token, " %s", buffer);
 		token = strtok(NULL, " ");
     	buffer[strlen(buffer) - 1] = '\0';
 
