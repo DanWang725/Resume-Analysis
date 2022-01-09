@@ -9,8 +9,12 @@ var dcp = express.Router();
      const compute = require('dcp/compute');
 
      const job = compute.for([10000003, 23423425, 2342342, 345345235, 234235235, 2054234698678], task);
+
+     
      job.computeGroups = [{ joinKey: 'hackathon', joinSecret: 'dcp2021' }];
-     console.log("");
+
+     job.requires('htj-dragoncats/resume.js');
+
      const results = await job.exec();
      console.log(Array.from(results));
 }
