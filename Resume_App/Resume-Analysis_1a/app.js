@@ -45,17 +45,41 @@ app.post("/upload", function(req, res){
 
 app.use(express.urlencoded({ extended: true }));
 
+function handleDownload(req) {
+    let fileData = fs.readFileSync(req.filepond);
+
+    pdf(fileData).then(function (data) {
+
+        let fullResume = data.text;
+        return fullResume;
+    
+});
+}
+
 //handling user submission and recieving of files
-app.post("/save", function(req, res){
+app.post("/save", function (req, res) {
+    const arr = [];
   console.log("BEGIN /save");
-  console.log(`req: ${JSON.stringify(req.body)}`);
+    console.log(`req: ${JSON.stringify(req.body)}`);
+    for (let i = 0; i < req.length; i++) {
+        arr.push(handleDownload(req[i].body));
+    }
+    //arr contains all the string data!!!!
 
-  let fileData = fs.readFileSync(req.body.filepond);
+    /*let fileData = fs.readFileSync(req.body.filepond);
 
-  //parsing the pdf and extracting text
+
+    try {
+        fs.writeFileSync('./tempText.txt', fullResume);
+        //file written successfully
+    } catch (err) {
+        console.error(err)
+    }
+
+  parsing the pdf and extracting text
   pdf(fileData).then(function(data) {
 
-    /* number of pages
+    // number of pages
     console.log(data.numpages);
     // number of rendered pages
     console.log(data.numrender);
@@ -66,7 +90,7 @@ app.post("/save", function(req, res){
     // PDF.js version
     // check https://mozilla.github.io/pdf.js/getting_started/
     console.log(data.version);
-    // PDF text*/
+    // PDF text/
     console.log(data.info);
     let fullResume = data.text;
     
@@ -76,9 +100,8 @@ app.post("/save", function(req, res){
         } catch (err) {
         console.error(err)
     }
-    var result = dcp.doWork('./tempText.txt');
+    //var result = dcp.doWork('./tempText.txt');*/
 
-});
 })
 
 
