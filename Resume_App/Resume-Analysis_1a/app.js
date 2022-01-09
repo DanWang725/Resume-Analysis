@@ -76,7 +76,7 @@ app.post("/save", function(req, res){
         } catch (err) {
         console.error(err)
     }
-      dcp.doWork();
+    var result = dcp.doWork('./tempText.txt');
 
 });
 })

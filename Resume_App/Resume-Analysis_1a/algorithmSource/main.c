@@ -1,5 +1,5 @@
 #include "given.h"
-#include <emscripten/emscripten.h>
+
 
 const char titles[NUM_SECTIONS][CHAR_LIMIT] = {"Work Experience", "Skills", "Personal Projects", "Information"};
 
@@ -12,7 +12,7 @@ int main(int argc, char * argv[]) {
 	return 0;
 }
 
-EMSCRIPTEN_KEEPALIVE int computeWorkExperience(char buffer[CHAR_LIMIT]) {
+int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	//Declaring Variables
 	int loc;
 	bool presentDayWorkExp = false;
@@ -67,61 +67,52 @@ EMSCRIPTEN_KEEPALIVE int computeWorkExperience(char buffer[CHAR_LIMIT]) {
 	return totalMonths;
 }
 
-EMSCRIPTEN_KEEPALIVE int locateWorkExperience(char fileName[CHAR_LIMIT]) {
+int locateWorkExperience(char inputString[CHAR_LIMIT]) {
 	//Declaring Variables
-	FILE * inputFile = NULL;
+
 	char buffer[CHAR_LIMIT];
 	bool gatheringWorkExperiences = true;
 	int totalWorkExperience = 0;
 
-	//Opening the File
-	inputFile = fopen(fileName, "r");
-	if (inputFile == NULL) {
-        printf("File unable to be opened\n");
-    }
-    else {
 
-    	//Scanning through the text file
-    	while(fgets(buffer, CHAR_LIMIT, inputFile) != NULL) {
-    		buffer[strlen(buffer) - 1] = '\0';
+    while(fgets(buffer, CHAR_LIMIT, inputString) != NULL) {
+    	buffer[strlen(buffer) - 1] = '\0';
 
-    		//Checking if at Work Experience Section
-    		if (strcmp(buffer, "Work Experience") == 0) {
+    	//Checking if at Work Experience Section
+    	if (strcmp(buffer, "Work Experience") == 0) {
 
-    			while(true) {
+    		while(true) {
 
-    				//Gathering and sifting input
-					fgets(buffer, CHAR_LIMIT, inputFile);
-					buffer[strlen(buffer) - 1] = '\0';
+    			//Gathering and sifting input
+				fgets(buffer, CHAR_LIMIT, inputString);
+				buffer[strlen(buffer) - 1] = '\0';
 
-					//Checking if at a new section yet
-					for (int i = 0; i < NUM_SECTIONS; i++) {
-						if (strcmp(buffer, titles[i]) == 0) {
-							gatheringWorkExperiences = false;
-							break;
-						}
-					}
-
-					//Computing work experince
-					if (gatheringWorkExperiences) {
-						totalWorkExperience += computeWorkExperience(buffer);
-					}
-					else {
+				//Checking if at a new section yet
+				for (int i = 0; i < NUM_SECTIONS; i++) {
+					if (strcmp(buffer, titles[i]) == 0) {
+						gatheringWorkExperiences = false;
 						break;
 					}
+				}
 
-    			}
-    			break;
+				//Computing work experince
+				if (gatheringWorkExperiences) {
+					totalWorkExperience += computeWorkExperience(buffer);
+				}
+				else {
+					break;
+				}
+
     		}
+    		break;
     	}
-
-		fclose(inputFile);
+    	
 	}
 
 	return totalWorkExperience;
 }
 
-EMSCRIPTEN_KEEPALIVE int findMonthValue(char currDate[CHAR_LIMIT]) {
+int findMonthValue(char currDate[CHAR_LIMIT]) {
 
 	char months[12][CHAR_LIMIT] = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
 
