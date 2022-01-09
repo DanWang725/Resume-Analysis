@@ -62,6 +62,7 @@ function handleDownload(req) {
 app.post("/save", function(req, res){
   console.log("BEGIN /save");
     console.log(`req: ${JSON.stringify(req.body)}`);
+
     for (let i = 0; i < req.length; i++) {
         arr.push(handleDownload(req[i].body));
     }
